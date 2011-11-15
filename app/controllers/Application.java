@@ -3,8 +3,8 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import models.Identite;
 import models.PaginationVerticale;
+import models.Profil;
 import play.db.jpa.Model;
 import play.mvc.Controller;
 
@@ -12,48 +12,28 @@ public class Application extends Controller {
 
 	public static void index() {
 		// Fixtures.deleteDatabase();
-		List<Identite> lstIdentite = Identite
-				.find("from Identite order by nom").fetch();
-		if (lstIdentite.isEmpty()) {
+		List<Profil> lstProfils = Profil.find("from Profil order by nom")
+				.fetch();
 
-			// Création d'un jeu de donnée initial
-			Identite id = new Identite("MARTIN", "Henry");
-			id.save();
-			lstIdentite.add(id);
-			id = new Identite("DUPOND", "Robert");
-			id.save();
-			lstIdentite.add(id);
-			id = new Identite("DUPONT", "Marc");
-			id.save();
-			lstIdentite.add(id);
-
-			for (int i = 0; i < 30; i++) {
-				Identite idG = new Identite("ID" + i, "Prenom" + i);
-				idG.save();
-				lstIdentite.add(idG);
-			}
-		}
-
-		List<PaginationVerticale> lstPaginee = Application.paginer(lstIdentite,
+		List<PaginationVerticale> lstPaginee = Application.paginer(lstProfils,
 				5);
 		render(lstPaginee);
 	}
 
 	public static void search(String searchTexte) {
-
 		// On sort tout ce qui pourrait parasiter la recherche
 		String textePourLaRecherche = "%" + searchTexte.toUpperCase() + "%";
-		List<Identite> lstIdentite = Identite
-				.find("from Identite where upper(nom)||upper(prenom) like ? or upper(prenom)||upper(nom) like ? order by nom",
+		List<Profil> lstProfils = Profil
+				.find("from Profil where upper(nom)||upper(prenom) like ? or upper(prenom)||upper(nom) like ? order by nom",
 						textePourLaRecherche, textePourLaRecherche).fetch();
 
-		List<PaginationVerticale> lstPaginee = Application.paginer(lstIdentite,
+		List<PaginationVerticale> lstPaginee = Application.paginer(lstProfils,
 				5);
 
 		render("Application/index.html", lstPaginee);
 	}
 
-	public static List<PaginationVerticale> paginer(List<Identite> lstAPaginer,
+	public static List<PaginationVerticale> paginer(List<Profil> lstAPaginer,
 			int nbColonnes) {
 		List<PaginationVerticale> lstPaginee = new ArrayList<PaginationVerticale>();
 		int numCol = 0;
