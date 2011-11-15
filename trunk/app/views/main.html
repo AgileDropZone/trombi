@@ -17,7 +17,12 @@
                 <a href="@{Application.index()}"><img src="/public/images/logoDND.jpg"></a>             
             </div>
             <div id="titreSite">Bienvenue sur le trombinoscope<br>de la SA DND</div>
-                        
+            #{form @Application.search()}
+	            <div id="recherche">
+	                <img style="width: 32px; height: 32px;" alt="" src="/public/images/icon%20recherche.gif">
+	                <input type="text" name="searchTexte" id="searchTexte" value="" />
+	            </div>
+            #{/form}                                
         </div> <!-- entete -->
         
         
