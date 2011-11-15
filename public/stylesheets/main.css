@@ -77,12 +77,38 @@ table #photo {
 }
 
 #label {
+	text-align: left;
     font-weight: bold;
     width: 180px;
 }
 
-#modifProfil {
+#modifProfil table {
+	position: relative;
+	margin-left:5%; 
+	width:45%;
+}
+
+input[type=text] {
     text-align: left;
-    padding-top: 50px;
-    padding-bottom: 15px;
-} 
+    width: 400px;
+ }
+ textarea {
+    text-align: left;
+    padding-top: 0px;
+    padding-bottom: 0px;    
+    resize: both;
+    width: 400px;
+    height: 100px;
+    font-family: Arial;
+ }
+ 
+ #modifProfil #choix-photo {
+    position: absolute;
+    top: 125px;
+    bottom: 100px;
+    width: 30%;
+    margin-left: 0px;
+    margin-right: 0px;
+    right: 10%;
+}
+ 

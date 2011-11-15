@@ -12,7 +12,8 @@ public class Application extends Controller {
 
 	public static void index() {
 		// Fixtures.deleteDatabase();
-		List<Identite> lstIdentite = Identite.findAll();
+		List<Identite> lstIdentite = Identite
+				.find("from Identite order by nom").fetch();
 		if (lstIdentite.isEmpty()) {
 
 			// Création d'un jeu de donnée initial
