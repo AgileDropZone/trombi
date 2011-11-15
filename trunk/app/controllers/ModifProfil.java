@@ -12,11 +12,8 @@ public class ModifProfil extends Controller {
 
 	private static String pathMrX = "public/images/MrX.jpg";
 
-	public static void index() {
-		render();
-	}
-
 	public static void chargeById(Long id) {
+		// TODO Supprimer ce flag temporaire
 		// session.put("modif", "oui");
 		Profil identite = Profil.findById(id);
 		render("Profil/modif-profil.html", identite);
