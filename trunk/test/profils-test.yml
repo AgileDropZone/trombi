@@ -1,0 +1,237 @@
+# you describe your data using the YAML notation here
+# and then load them using Fixtures.load("data.yml")
+
+# Remarque : les photos ne peuvent pas être affectées
+# aux profils directement à travers le format YAML.
+# Elles devront l'être dans un second temps. 
+
+Profil(profiltest1):
+    nom:            Archimède
+    prenom:         David
+    telFixe:        +33 (0)5 05 05 05 01
+    telPortable:    +33 (0)6 06 06 06 01
+    email:          David.Archimède@Dnd.fr
+    departement:    RH
+    service:        Recrutement
+    poste:          Traitement des nouveaux embauchés
+    localisation:   Bat. 1 - Couloir 7 - Bureau 125
+
+Profil(profil-test2):
+    nom:            Gutenberg
+    prenom:         Béatrice
+    telFixe:        +33 (0)5 05 05 05 02
+    telPortable:    +33 (0)6 06 06 06 02
+    email:          Béatrice.Gutenberg@Dnd.fr
+    departement:    RH
+    service:        Recrutement
+    poste:          Suivi des carrières
+    localisation:   Bat. 1 - Couloir 2 - Bureau 3
+
+Profil(profil-test3):
+    nom:            De Vinci 
+    prenom:         Paul
+    telFixe:        +33 (0)5 05 05 05 03
+    telPortable:    +33 (0)6 06 06 06 03
+    email:          Paul.De.Vinci@Dnd.fr
+    departement:    Paie
+    service:        Fiches de paie
+    poste:          Gestion des salaires
+    localisation:   Bat. 1 - Couloir 4 - Bureau 1
+
+Profil(profil-test4):
+    nom:            Copernic 
+    prenom:         Isabelle
+    telFixe:        +33 (0)5 05 05 05 04
+    telPortable:    +33 (0)6 06 06 06 04
+    email:          Isabelle.Copernic@Dnd.fr
+    departement:    Paie
+    service:        Fiches de paie
+    poste:          Gestion des salaires
+    localisation:   Bat. 1 - Couloir 4 - Bureau 2
+
+Profil(profil-test5):
+    nom:            Dupond
+    prenom:         Robert
+    telFixe:        +33 (0)5 05 05 05 05
+    telPortable:    +33 (0)6 06 06 06 05
+    email:          Robert.Dupond@Dnd.fr
+    departement:    Direction
+    service:        RH
+    poste:          DRH
+    localisation:   Bat. 1 - Couloir 1 - Bureau 5
+
+Profil(profil-test6):
+    nom:            Martin
+    prenom:         Henry
+    telFixe:        +33 (0)5 05 05 05 06
+    telPortable:    +33 (0)6 06 06 06 06
+    email:          Henry.Martin@Dnd.fr
+    departement:    Direction
+    service:        Direction générale
+    poste:          PDG
+    localisation:   Bat. 1 - Couloir 1 - Bureau 1
+
+Profil(profil-test7):
+    nom:            Brahe
+    prenom:         Romain
+    telFixe:        +33 (0)5 05 05 05 07
+    telPortable:    +33 (0)6 06 06 06 07
+    email:          Romain.Brahe@Dnd.fr
+    departement:    Direction
+    service:        Direction financière
+    poste:          DAF
+    localisation:   Bat. 2 - Couloir 5 - Bureau 3
+
+Profil(profil-test8):
+    nom:            Galilée
+    prenom:         Simone
+    telFixe:        +33 (0)5 05 05 05 08
+    telPortable:    +33 (0)6 06 06 06 08
+    email:          Simone.Galilée@Dnd.fr
+    departement:    Direction
+    service:        Direction financière
+    poste:          Assistante
+    localisation:   Bat. 2 - Couloir 5 - Bureau 2
+
+Profil(profil-test9):
+    nom:            Kepler
+    prenom:         Thomas
+    telFixe:        +33 (0)5 05 05 05 09
+    telPortable:    +33 (0)6 06 06 06 09
+    email:          Thomas.Kepler@Dnd.fr
+    departement:    Production
+    service:        Production logicielle
+    poste:          Développeur
+    localisation:   Bat. 1 - Couloir 2 - Openspace
+
+Profil(profil-test10):
+    nom:            Torricelli
+    prenom:         Pascale
+    telFixe:        +33 (0)5 05 05 05 10
+    telPortable:    +33 (0)6 06 06 06 10
+    email:          Pascale.Torricelli@Dnd.fr
+    departement:    Production
+    service:        Production logicielle
+    poste:          Développeur
+    localisation:   Bat. 1 - Couloir 2 - Openspace
+
+Profil(profil-test11):
+    nom:            Newton
+    prenom:         Brandon
+    telFixe:        +33 (0)5 05 05 05 11
+    telPortable:    +33 (0)6 06 06 06 11
+    email:          Brandon.Newton@Dnd.fr
+    departement:    Production
+    service:        Production logicielle
+    poste:          Développeur
+    localisation:   Bat. 1 - Couloir 2 - Openspace
+
+Profil(profil-test12):
+    nom:            Celsius
+    prenom:         Gustave
+    telFixe:        +33 (0)5 05 05 05 12
+    telPortable:    +33 (0)6 06 06 06 12
+    email:          Gustave.Celsius@Dnd.fr
+    departement:    Production
+    service:        Production logicielle
+    poste:          Développeur
+    localisation:   Bat. 1 - Couloir 2 - Openspace
+
+Profil(profil-test13):
+    nom:            Coulomb
+    prenom:         Marie
+    telFixe:        +33 (0)5 05 05 05 13
+    telPortable:    +33 (0)6 06 06 06 13
+    email:          Marie.Coulomb@Dnd.fr
+    departement:    Production
+    service:        Production logicielle
+    poste:          Développeur
+    localisation:   Bat. 1 - Couloir 2 - Openspace
+
+Profil(profil-test14):
+    nom:            Cavendish
+    prenom:         Anne
+    telFixe:        +33 (0)5 05 05 05 14
+    telPortable:    +33 (0)6 06 06 06 14
+    email:          Anne.Cavendish@Dnd.fr
+    departement:    Production
+    service:        Production logicielle
+    poste:          Développeur
+    localisation:   Bat. 1 - Couloir 2 - Openspace
+
+Profil(profil-test15):
+    nom:            Watt
+    prenom:         Naomie
+    telFixe:        +33 (0)5 05 05 05 15
+    telPortable:    +33 (0)6 06 06 06 15
+    email:          Naomie.Watt@Dnd.fr
+    departement:    Production
+    service:        Production logicielle
+    poste:          Développeur
+    localisation:   Bat. 1 - Couloir 2 - Openspace
+
+Profil(profil-test16):
+    nom:            Lavoisier
+    prenom:         Carine
+    telFixe:        +33 (0)5 05 05 05 16
+    telPortable:    +33 (0)6 06 06 06 16
+    email:          Carine.Lavoisier@Dnd.fr
+    departement:    Direction
+    service:        Communication
+    poste:          Responsable communication interne
+    localisation:   Bat. 1 - Couloir 1 - Bureau 2
+
+Profil(profiltest17):
+    nom:            Volta
+    prenom:         Philippe
+    telFixe:        +33 (0)5 05 05 05 17
+    telPortable:    +33 (0)6 06 06 06 17
+    email:          Philippe.Volta@Dnd.fr
+    departement:    Direction
+    service:        Tehcnique
+    poste:          Directeur technique
+    localisation:   Bat. 25 - Couloir 1 - Bureau 1
+
+Profil(profil-test18):
+    nom:            Ampère
+    prenom:         Céline
+    telFixe:        +33 (0)5 05 05 05 18
+    telPortable:    +33 (0)6 06 06 06 18
+    email:          Céline.Ampère@Dnd.fr
+    departement:    Production
+    service:        Production logicielle
+    poste:          Chef de projets
+    localisation:   Bat. 1 - Couloir 2 - Openspace
+
+Profil(profil-test19):
+    nom:            Faraday 
+    prenom:         Vincent
+    telFixe:        +33 (0)5 05 05 05 19
+    telPortable:    +33 (0)6 06 06 06 19
+    email:          Vincent.Faraday@Dnd.fr
+    departement:    Direction
+    service:        Multi-services
+    poste:          Assistante de direction
+    localisation:   Bat. 1 - Couloir 1 - Bureau 1
+
+Profil(profil-test20):
+    nom:            Mendeleïev 
+    prenom:         Anaïs
+    telFixe:        +33 (0)5 05 05 05 20
+    telPortable:    +33 (0)6 06 06 06 20
+    email:          Anaïs.Mendeleïev@Dnd.fr
+    departement:    Commercial
+    service:        Commercial
+    poste:          Responsable du pôle commercial
+    localisation:   Bat. 18 - Couloir 22 - Bureau 5
+
+Profil(profil-test21):
+    nom:            Edison
+    prenom:         Caroline
+    telFixe:        +33 (0)5 05 05 05 21
+    telPortable:    +33 (0)6 06 06 06 21
+    email:          Caroline.Edison@Dnd.fr
+    departement:    Commercial
+    service:        Commercial
+    poste:          Commercial itinérant
+    localisation:   Bat. 18 - Couloir 22 - Bureau 6

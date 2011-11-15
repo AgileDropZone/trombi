@@ -6,11 +6,11 @@ import play.db.jpa.Blob;
 import play.db.jpa.Model;
 
 /**
- * Classe Identite représentant les informations de base sur un individu. <BR>
+ * Classe Profil représentant les informations de base sur un individu. <BR>
  * Rappel : la gestion d'un identifiant est déjà fourni par héritage.
  */
 @Entity
-public class Identite extends Model {
+public class Profil extends Model {
 	public String nom;
 	public String prenom;
 
@@ -40,7 +40,7 @@ public class Identite extends Model {
 	 * @param nom
 	 * @param prenom
 	 */
-	public Identite(String nom, String prenom) {
+	public Profil(String nom, String prenom) {
 		this.nom = nom;
 		this.prenom = prenom;
 	}
@@ -49,7 +49,7 @@ public class Identite extends Model {
 	 * Constructeur basic. <BR>
 	 * Rappel : un identifiant est déjà fourni par héritage.
 	 */
-	public Identite() {
+	public Profil() {
 	}
 
 }
