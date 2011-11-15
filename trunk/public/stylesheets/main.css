@@ -1,0 +1,88 @@
+body {
+    color: rgb(0, 0, 0);
+    background-color: rgb(204, 204, 255);
+    alink="#000099" link="#000099" vlink="#990099";     
+    font-family: Arial;
+}
+
+/*************************************************************/
+/*                           ENTETE                          */
+/*************************************************************/
+#entete {
+    margin-bottom: 50px;
+    width:100%;    
+}
+#entete #logoSociete img {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+	width: 200px;
+    height: 96px;
+}
+#entete #titreSite {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    color: rgb(0, 0, 153);
+}
+
+/*************************************************************/
+/*                        PIED DE PAGE                       */
+/*************************************************************/
+#piedDePage {
+	position: fixed;
+    width:100%;
+    bottom: 0;
+	padding: 0 20px;
+	background-color: rgb(204, 204, 255);
+}
+#piedDePage #mentionLegale {
+    font-size: xx-small;
+    text-align: center;
+}
+#piedDePage #mentionSociete {
+    margin-top: 10px;
+    font-size: small;
+    text-align: center;
+    font-style: italic;
+}
+
+/*************************************************************/
+/*                          CONTENU                          */
+/*************************************************************/
+#contenu {
+	padding-bottom: 30px;
+}
+
+table {
+    caption-side: top;
+    text-align: center;
+    width:80%; 
+    margin-left:10%; 
+    margin-right:10%; 
+}
+td, th {
+    padding: 5px;
+}
+table #photo {
+    text-align: center;
+}
+.nom_prenom a {
+    text-decoration: none;
+    color: black;
+}
+
+#nouveauProfil a {
+    color: red;
+}
+
+#label {
+    font-weight: bold;
+    width: 180px;
+}
+
+#modifProfil {
+    text-align: left;
+    padding-top: 50px;
+    padding-bottom: 15px;
+} 
