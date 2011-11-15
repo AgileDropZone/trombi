@@ -30,4 +30,12 @@ public class ApplicationTest extends FunctionalTest {
 		assertContentType("text/html", response);
 		assertContentMatch("Robert DUPOND", response);
 	}
+
+	@Test
+	public void laRechercheDoitRemonterRobertDupond() {
+		Response response = GET("/recherche/dupo");
+		assertIsOk(response);
+		assertContentType("text/html", response);
+		assertContentMatch("Robert DUPOND", response);
+	}
 }
