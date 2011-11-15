@@ -1,0 +1,7 @@
+<div id="photo"><a href="@{ModifProfil.chargeById(_profil.id)}">
+    #{if _profil.photo && _profil.photo.type()} <img src="@{ModifProfil.getPicture(_profil.id)}" height="100"/> #{/if}
+    #{else} <img src="/public/images/MrX.jpg" height="100"/> #{/else}                        
+</a></div>                
+<p>
+<span class="nom_prenom"><a href="@{ModifProfil.chargeById(_profil.id)}">${_profil.prenom} ${_profil.nom.toUpperCase()}</a></span>
+</p>

@@ -1,0 +1,50 @@
+#{extends 'main.html' /}
+#{set title:'Modifications' /}
+
+#{form @ModifProfil.save(identite.id), enctype:'multipart/form-data'}
+<div id="modifProfil">
+    <table>
+        <tr>
+            <td><div id="label">Prénom :</div></td> <td><input type="text" name="prenom" id="prenom" value="${identite?.prenom}" /></td>
+        </tr>
+        <tr>
+            <td><div id="label">Nom :</div></td> <td><input type="text" name="nom" id="nom" value="${identite?.nom}" /></td>
+        </tr>
+        <tr>
+            <td><div id="label">Téléphone fixe :</div></td> <td><input type="text" name="telFixe" id="telFixe" value="${identite?.telFixe}" /></td>
+        </tr>
+        <tr>
+            <td><div id="label">Téléphone mobile :</div></td> <td> <input type="text" name="telPortable" id="telPortable" value="${identite?.telPortable}" /></td>
+        </tr>
+        <tr>
+            <td><div id="label">Email :</div></td> <td><input type="text" name="email" id="email" value="${identite?.email}" /></td>
+        </tr>
+
+
+        <tr>
+            <td><div id="label">Département :</div></td> <td><input type="text" name="departement" id="departement" value="${identite?.departement}" /></td>
+        </tr>
+        <tr>
+            <td><div id="label">Service :</div></td> <td><input type="text" name="service" id="service" value="${identite?.service}" /></td>
+        </tr>
+        <tr>
+            <td><div id="label">Poste :</div></td> <td><input type="text" name="poste" id="poste" value="${identite?.poste}" /></td>
+        </tr>
+        <tr>
+            <td><div id="label">Localisation :</div></td> <td><textarea rows="4" name="localisation" id="localisation"> ${identite?.localisation}</textarea></td>
+        </tr>
+        <tr>
+            <td>
+	            <div id="photo">
+	                #{if identite && identite.photo && identite.photo.type() } <img src="@{ModifProfil.getPicture(identite?.id)}" height="100"/> #{/if}
+	                #{else} <img src="/public/images/MrX.jpg" height="100"/> #{/else}                       
+	            </div>
+            </td> <td><input type="file" name="photo" /></td>
+        </tr>
+    </table> 
+
+	<input type="submit" value="Enregistrement" />
+</div>
+#{/form}
+
+<div id="retour"><a href="@{Application.index()}">Retour à la liste</a></div>

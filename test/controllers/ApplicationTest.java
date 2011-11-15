@@ -1,3 +1,5 @@
+package controllers;
+
 import org.junit.Test;
 
 import play.mvc.Http.Response;
@@ -14,10 +16,18 @@ public class ApplicationTest extends FunctionalTest {
 	}
 
 	@Test
-	public void unContenuDeTestDoitEtrePresentSurLaPageAccueil() {
+	public void leTitreDuSiteDoitEtrePresentSurLaPageAccueil() {
 		Response response = GET("/");
 		assertIsOk(response);
 		assertContentType("text/html", response);
-		assertContentMatch("Ceci est un test", response);
+		assertContentMatch("Bienvenue sur le trombinoscope", response);
+	}
+
+	@Test
+	public void laPageAccueilDoitContenirRobertDupond() {
+		Response response = GET("/");
+		assertIsOk(response);
+		assertContentType("text/html", response);
+		assertContentMatch("Robert DUPOND", response);
 	}
 }
