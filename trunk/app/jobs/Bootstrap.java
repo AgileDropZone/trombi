@@ -25,31 +25,34 @@ public class Bootstrap extends Job {
 	public void doJob() {
 		if (Play.runingInTestMode()) {
 			if (Profil.count() == 0) {
-				Logger.info("Purge de la base de tests");
-				Fixtures.deleteDatabase();
-				Logger.info("Chargement des profils de tests");
-				Fixtures.loadModels("profils-test.yml");
+				reinitJeuDeTests();
+			}
+		}
+	}
 
-				Logger.info("Affectation des photos aux profils de tests");
-				List<Profil> lstProfils = Profil.findAll();
-				for (Profil profil : lstProfils) {
-					String nomFichier = StringUtilsLight
-							.normalize(profil.prenom + " " + profil.nom)
-							.replace(" ", ".").toLowerCase()
-							+ ".jpg";
-					File fichierPhoto = Play.getFile("test/photos/"
-							+ nomFichier);
+	public void reinitJeuDeTests() {
+		Logger.info("Purge de la base de tests");
+		Fixtures.deleteDatabase();
+		Logger.info("Chargement des profils de tests");
+		Fixtures.loadModels("profils-test.yml");
 
-					if (fichierPhoto != null && fichierPhoto.exists()) {
-						try {
-							profil.photo.set(new FileInputStream(fichierPhoto),
-									"image/jpg");
-							profil.save();
-						} catch (FileNotFoundException e) {
-							Logger.info("Il n'a pas été possible d'associer une photo au profil de "
-									+ profil.prenom + " " + profil.nom);
-						}
-					}
+		Logger.info("Affectation des photos aux profils de tests");
+		List<Profil> lstProfils = Profil.findAll();
+		for (Profil profil : lstProfils) {
+			String nomFichier = StringUtilsLight
+					.normalize(profil.prenom + " " + profil.nom)
+					.replace(" ", ".").toLowerCase()
+					+ ".jpg";
+			File fichierPhoto = Play.getFile("test/photos/" + nomFichier);
+
+			if (fichierPhoto != null && fichierPhoto.exists()) {
+				try {
+					profil.photo.set(new FileInputStream(fichierPhoto),
+							"image/jpg");
+					profil.save();
+				} catch (FileNotFoundException e) {
+					Logger.info("Il n'a pas été possible d'associer une photo au profil de "
+							+ profil.prenom + " " + profil.nom);
 				}
 			}
 		}
