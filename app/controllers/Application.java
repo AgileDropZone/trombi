@@ -39,6 +39,20 @@ public class Application extends Controller {
 		render(lstPaginee);
 	}
 
+	public static void search(String searchTexte) {
+
+		// On sort tout ce qui pourrait parasiter la recherche
+		String textePourLaRecherche = "%" + searchTexte.toUpperCase() + "%";
+		List<Identite> lstIdentite = Identite
+				.find("from Identite where upper(nom)||upper(prenom) like ? or upper(prenom)||upper(nom) like ? order by nom",
+						textePourLaRecherche, textePourLaRecherche).fetch();
+
+		List<PaginationVerticale> lstPaginee = Application.paginer(lstIdentite,
+				5);
+
+		render("Application/index.html", lstPaginee);
+	}
+
 	public static List<PaginationVerticale> paginer(List<Identite> lstAPaginer,
 			int nbColonnes) {
 		List<PaginationVerticale> lstPaginee = new ArrayList<PaginationVerticale>();
