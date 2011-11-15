@@ -5,33 +5,76 @@
 <div id="modifProfil">
     <table>
         <tr>
-            <td><div id="label">Prénom :</div></td> <td><input type="text" name="prenom" id="prenom" value="${identite?.prenom}" /></td>
+           <td><div id="label">Prénom :</div></td>
+            #{if session.contains("modif")}
+                <td><input type="text" name="prenom" id="prenom" value="${identite?.prenom}" /></td>
+            #{/if} #{else} 
+                <td><div id="detail">${identite?.prenom}</div></td>
+            #{/else} 
         </tr>
         <tr>
-            <td><div id="label">Nom :</div></td> <td><input type="text" name="nom" id="nom" value="${identite?.nom}" /></td>
+           <td><div id="label">Nom :</div></td>
+            #{if session.contains("modif")}
+                <td><input type="text" name="nom" id="nom" value="${identite?.nom}" /></td>
+            #{/if} #{else} 
+                <td><div id="detail">${identite?.nom}</div></td>
+            #{/else} 
         </tr>
         <tr>
-            <td><div id="label">Téléphone fixe :</div></td> <td><input type="text" name="telFixe" id="telFixe" value="${identite?.telFixe}" /></td>
+           <td><div id="label">Téléphone fixe :</div></td>
+            #{if session.contains("modif")}
+                <td><input type="text" name="telFixe" id="telFixe" value="${identite?.telFixe}" /></td>
+            #{/if} #{else} 
+                <td><div id="detail">${identite?.telFixe}</div></td>
+            #{/else} 
         </tr>
         <tr>
-            <td><div id="label">Téléphone mobile :</div></td> <td> <input type="text" name="telPortable" id="telPortable" value="${identite?.telPortable}" /></td>
+           <td><div id="label">Téléphone mobile :</div></td>
+            #{if session.contains("modif")}
+                <td><input type="text" name="telPortable" id="telPortable" value="${identite?.telPortable}" /></td>
+            #{/if} #{else} 
+                <td><div id="detail">${identite?.telPortable}</div></td>
+            #{/else}         
         </tr>
         <tr>
-            <td><div id="label">Email :</div></td> <td><input type="text" name="email" id="email" value="${identite?.email}" /></td>
-        </tr>
-
-
-        <tr>
-            <td><div id="label">Département :</div></td> <td><input type="text" name="departement" id="departement" value="${identite?.departement}" /></td>
-        </tr>
-        <tr>
-            <td><div id="label">Service :</div></td> <td><input type="text" name="service" id="service" value="${identite?.service}" /></td>
+           <td><div id="label">Email :</div></td>
+            #{if session.contains("modif")}
+                <td><input type="text" name="email" id="email" value="${identite?.email}" /></td>
+            #{/if} #{else} 
+                <td><div id="detail">${identite?.email}</div></td>
+            #{/else}                
         </tr>
         <tr>
-            <td><div id="label">Poste :</div></td> <td><input type="text" name="poste" id="poste" value="${identite?.poste}" /></td>
+           <td><div id="label">Département :</div></td>
+            #{if session.contains("modif")}
+                <td><input type="text" name="departement" id="departement" value="${identite?.departement}" /></td>
+            #{/if} #{else} 
+                <td><div id="detail">${identite?.departement}</div></td>
+            #{/else}          
         </tr>
         <tr>
-            <td><div id="label">Localisation :</div></td> <td><textarea rows="4" name="localisation" id="localisation"> ${identite?.localisation}</textarea></td>
+           <td><div id="label">Service :</div></td>
+            #{if session.contains("modif")}
+                <td><input type="text" name="service" id="service" value="${identite?.service}" /></td>
+            #{/if} #{else} 
+                <td><div id="detail">${identite?.service}</div></td>
+            #{/else}            
+        </tr>
+        <tr>
+           <td><div id="label">Poste :</div></td>
+            #{if session.contains("modif")}
+                <td><input type="text" name="poste" id="poste" value="${identite?.poste}" /></td>
+            #{/if} #{else} 
+                <td><div id="detail">${identite?.poste}</div></td>
+            #{/else}            
+        </tr>
+        <tr>
+           <td><div id="label">Localisation :</div></td>
+            #{if session.contains("modif")}
+                <td><textarea rows="4" name="localisation" id="localisation"> ${identite?.localisation}</textarea></td>
+            #{/if} #{else} 
+                <td><textarea readonly rows="4" name="localisation" id="localisation"> ${identite?.localisation}</textarea></td>
+            #{/else}            
         </tr>
     </table> 
     <div id="choix-photo">
@@ -39,11 +82,14 @@
             #{if identite && identite.photo && identite.photo.type() } <img src="@{ModifProfil.getPicture(identite?.id)}" height="350"/> #{/if}
             #{else} <img src="/public/images/MrX.jpg" height="350"/> #{/else}                       
         </div>
-        <br>
-        <input type="file" name="photo" />
+        #{if session.contains("modif")}
+	        <br>
+	        <input type="file" name="photo" />
+        #{/if}
     </div>
-    
-	<input type="submit" value="Enregistrement" />
+    #{if session.contains("modif")}
+	   <input type="submit" value="Enregistrement" />
+	#{/if}
 </div>
 #{/form}
 
