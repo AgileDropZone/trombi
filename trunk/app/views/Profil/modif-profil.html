@@ -33,16 +33,16 @@
         <tr>
             <td><div id="label">Localisation :</div></td> <td><textarea rows="4" name="localisation" id="localisation"> ${identite?.localisation}</textarea></td>
         </tr>
-        <tr>
-            <td>
-	            <div id="photo">
-	                #{if identite && identite.photo && identite.photo.type() } <img src="@{ModifProfil.getPicture(identite?.id)}" height="100"/> #{/if}
-	                #{else} <img src="/public/images/MrX.jpg" height="100"/> #{/else}                       
-	            </div>
-            </td> <td><input type="file" name="photo" /></td>
-        </tr>
     </table> 
-
+    <div id="choix-photo">
+        <div id="photo">
+            #{if identite && identite.photo && identite.photo.type() } <img src="@{ModifProfil.getPicture(identite?.id)}" height="350"/> #{/if}
+            #{else} <img src="/public/images/MrX.jpg" height="350"/> #{/else}                       
+        </div>
+        <br>
+        <input type="file" name="photo" />
+    </div>
+    
 	<input type="submit" value="Enregistrement" />
 </div>
 #{/form}
