@@ -3,6 +3,8 @@ body {
     background-color: rgb(204, 204, 255);
     alink="#000099" link="#000099" vlink="#990099";     
     font-family: Arial;
+    background-image: -webkit-gradient(linear, center top, center bottom, from(white), to(blue));
+    height: 700px;
 }
 
 a img {
@@ -19,7 +21,7 @@ a img {
 #entete #logoSociete img {
     position: absolute;
     top: 2px;
-    left: 2px;
+    left: 2%;
 	width: 200px;
     height: 96px;
 }
@@ -32,7 +34,7 @@ a img {
 #entete #recherche {
     position: absolute;
     top: 35px;
-    right: 5%;
+    right: 2%;
     font-size: 24px;
     color: rgb(0, 0, 153);
 }
@@ -46,8 +48,9 @@ a img {
 	position: fixed;
     width:100%;
     bottom: 0;
-	padding: 0 20px;
-	background-color: rgb(204, 204, 255);
+	padding: 0 0;
+	background-color:blue;
+	z-index: 1;
 }
 #piedDePage #mentionLegale {
     font-size: xx-small;
@@ -66,7 +69,9 @@ a img {
 #contenu {
 	padding-bottom: 30px;
 }
-
+#contenu a img {
+    border-radius: 10px 0px 10px 0px;
+}
 table {
     caption-side: top;
     text-align: center;
@@ -129,4 +134,47 @@ input[type=text] {
 #detail {
     text-align: left;
     font-weight: bold;
+}
+
+
+/*************************************************************/
+/*                        PAGINATION                         */
+/*************************************************************/
+#pagination {
+    position: fixed;
+    width:100%;
+    bottom: 0;
+    right: 2%;
+    text-align: right;
+    padding: 0px 0px 5px 0px;
+    z-index: 2;
+}
+#pagination a:link {
+    text-decoration:none;
+}
+#pagination a img {
+    border-radius: 0px 0px 0px 0px;
+}
+.pageCourante {
+    border:solid;
+    border-radius: 5px 0px 5px 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-width: 2px;
+    padding-left: 3px;
+    padding-right: 3px;
+    color: grey;
+    background-image: -webkit-gradient(linear, center top, center bottom, from(grey), to(blue));
+}
+.pageAutre {
+    border:solid;
+    border-radius: 5px 0px 5px 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-width: 2px;
+    padding-left: 3px;
+    padding-right: 3px;
+    color: black;    
+    background-image: -webkit-gradient(linear, center top, center bottom, from(white), to(grey));
+    text-decoration:none;
 }

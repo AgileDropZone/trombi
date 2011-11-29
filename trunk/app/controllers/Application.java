@@ -10,14 +10,24 @@ import play.mvc.Controller;
 
 public class Application extends Controller {
 
-	public static void index() {
-		// Fixtures.deleteDatabase();
+	private static Integer defaultPage = 1;
+	private static Integer defaultNbEnrParPage = 15;
+
+	public static void index(Integer page) {
+		page = page != null ? page : defaultPage;
+		List<PaginationVerticale> lstPaginee = Application.getProfils(page);
+
+		Integer nbPages = (int) (Profil.count() / defaultNbEnrParPage) + 1;
+		render("Application/index.html", lstPaginee, page, nbPages);
+	}
+
+	private static List<PaginationVerticale> getProfils(Integer page) {
 		List<Profil> lstProfils = Profil.find("from Profil order by nom")
-				.fetch();
+				.fetch(page, defaultNbEnrParPage);
 
 		List<PaginationVerticale> lstPaginee = Application.paginer(lstProfils,
 				5);
-		render(lstPaginee);
+		return lstPaginee;
 	}
 
 	public static void search(String searchTexte) {
