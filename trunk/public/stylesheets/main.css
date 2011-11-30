@@ -3,7 +3,6 @@ body {
     background-color: rgb(204, 204, 255);
     alink="#000099" link="#000099" vlink="#990099";     
     font-family: Arial;
-    background-image: -webkit-gradient(linear, center top, center bottom, from(white), to(blue));
     height: 700px;
 }
 
@@ -49,7 +48,7 @@ a img {
     width:100%;
     bottom: 0;
 	padding: 0 0;
-	background-color:blue;
+	background-color: rgb(204, 204, 255);
 	z-index: 1;
 }
 #piedDePage #mentionLegale {
@@ -149,32 +148,25 @@ input[type=text] {
     padding: 0px 0px 5px 0px;
     z-index: 2;
 }
-#pagination a:link {
+#pagination a:link, a:visited, a:hover, a:focus {
     text-decoration:none;
 }
 #pagination a img {
     border-radius: 0px 0px 0px 0px;
 }
 .pageCourante {
-    border:solid;
-    border-radius: 5px 0px 5px 0px;
     margin-left: 5px;
     margin-right: 5px;
     border-width: 2px;
     padding-left: 3px;
     padding-right: 3px;
-    color: grey;
-    background-image: -webkit-gradient(linear, center top, center bottom, from(grey), to(blue));
 }
-.pageAutre {
-    border:solid;
-    border-radius: 5px 0px 5px 0px;
+.pageAutre a {
     margin-left: 5px;
     margin-right: 5px;
     border-width: 2px;
     padding-left: 3px;
     padding-right: 3px;
-    color: black;    
-    background-image: -webkit-gradient(linear, center top, center bottom, from(white), to(grey));
-    text-decoration:none;
+    color: blue;
+    font-weight: bold;
 }
