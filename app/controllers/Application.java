@@ -13,34 +13,38 @@ public class Application extends Controller {
 	private static Integer defaultPage = 1;
 	private static Integer defaultNbEnrParPage = 15;
 
-	public static void index(Integer page) {
+	public static void index(Integer page, String searchTexte) {
 		page = page != null ? page : defaultPage;
-		List<PaginationVerticale> lstPaginee = Application.getProfils(page);
+		searchTexte = (searchTexte == null || searchTexte.equals("null")) ? ""
+				: searchTexte;
+		List<PaginationVerticale> lstPaginee = Application.getProfils(page,
+				searchTexte);
 
 		Integer nbPages = (int) (Profil.count() / defaultNbEnrParPage) + 1;
-		render("Application/index.html", lstPaginee, page, nbPages);
+		render("Application/index.html", lstPaginee, page, nbPages, searchTexte);
 	}
 
-	private static List<PaginationVerticale> getProfils(Integer page) {
-		List<Profil> lstProfils = Profil.find("from Profil order by nom")
-				.fetch(page, defaultNbEnrParPage);
+	private static List<PaginationVerticale> getProfils(Integer page,
+			String searchTexte) {
+
+		List<Profil> lstProfils;
+
+		if (!"".equals(searchTexte)) {
+			// On sort tout ce qui pourrait parasiter la recherche
+			String textePourLaRecherche = "%" + searchTexte.toUpperCase() + "%";
+
+			lstProfils = Profil
+					.find("from Profil where upper(nom)||upper(prenom) like ? or upper(prenom)||upper(nom) like ? order by nom",
+							textePourLaRecherche, textePourLaRecherche).fetch(
+							page, defaultNbEnrParPage);
+		} else {
+			lstProfils = Profil.find("from Profil order by nom").fetch(page,
+					defaultNbEnrParPage);
+		}
 
 		List<PaginationVerticale> lstPaginee = Application.paginer(lstProfils,
 				5);
 		return lstPaginee;
-	}
-
-	public static void search(String searchTexte) {
-		// On sort tout ce qui pourrait parasiter la recherche
-		String textePourLaRecherche = "%" + searchTexte.toUpperCase() + "%";
-		List<Profil> lstProfils = Profil
-				.find("from Profil where upper(nom)||upper(prenom) like ? or upper(prenom)||upper(nom) like ? order by nom",
-						textePourLaRecherche, textePourLaRecherche).fetch();
-
-		List<PaginationVerticale> lstPaginee = Application.paginer(lstProfils,
-				5);
-
-		render("Application/index.html", lstPaginee);
 	}
 
 	public static List<PaginationVerticale> paginer(List<Profil> lstAPaginer,

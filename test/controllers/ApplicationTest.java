@@ -86,4 +86,49 @@ public class ApplicationTest extends FunctionalTest {
 				strReponse.indexOf("Carine LAVOISIER") == -1);
 	}
 
+	@Test
+	public void laRechercheNeDoitAfficherQue15Profils() {
+		Response response = GET("/page1/a");
+		assertIsOk(response);
+		assertContentType("text/html", response);
+
+		// Vis-à-vis du jeu de données de test, nous devons avoir
+		// sur la première page de Céline Ampère à Henry MARTIN
+		// -> Robert DUPOND ne doit pas remonter car il ne répond
+		// pas aux critères de recherche
+		// Les profils de Anaïs MENDELEÏEV à Naomie WATT doivent
+		// apparaitre en page 2
+
+		assertContentMatch("C&eacute;line AMP&Egrave;RE", response);
+		assertContentMatch("Henry MARTIN", response);
+
+		String strReponse = getContent(response);
+		assertTrue("Robert DUPOND ne répond pas aux critères de recherche",
+				strReponse.indexOf("Robert DUPOND") == -1);
+		assertTrue("Anaïs MENDELEÏEV ne devrait pas apparaitre sur cette page",
+				strReponse.indexOf("Ana&iuml;s MENDELE&Iuml;EV") == -1);
+	}
+
+	@Test
+	public void laSecondepageDeRechercheDoitAfficherDesProfilsFiltrés() {
+		Response response = GET("/page2/a");
+		assertIsOk(response);
+		assertContentType("text/html", response);
+
+		// Vis-à-vis du jeu de données de test et du critère recherché,
+		// nous devons avoir sur la seconde page de Anaïs MENDELEÏEV à
+		// Naomie WATT
+		// Les profils de Céline Ampère à Henry MARTIN doivent
+		// apparaitre en page 1
+
+		assertContentMatch("Ana&iuml;s MENDELE&Iuml;EV", response);
+		assertContentMatch("Naomie WATT", response);
+
+		String strReponse = getContent(response);
+		assertTrue("Céline AMPÈRE ne devrait pas apparaitre sur cette page",
+				strReponse.indexOf("C&eacute;line AMP&Egrave;RE") == -1);
+		assertTrue("Henry MARTIN ne devrait pas apparaitre sur cette page",
+				strReponse.indexOf("Henry MARTIN") == -1);
+
+	}
 }

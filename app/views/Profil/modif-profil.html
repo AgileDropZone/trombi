@@ -17,7 +17,7 @@
             #{if session.contains("modif")}
                 <td><input type="text" name="nom" id="nom" value="${identite?.nom}" /></td>
             #{/if} #{else} 
-                <td><div id="detail">${identite?.nom}</div></td>
+                <td><div id="detail">${identite?.nom?.toUpperCase()}</div></td>
             #{/else} 
         </tr>
         <tr>
