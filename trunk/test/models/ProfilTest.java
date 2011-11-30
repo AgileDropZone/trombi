@@ -25,6 +25,10 @@ public class ProfilTest extends UnitTest {
 		Profil profilEnBase = Profil.find("from Profil where nom = ?", id.nom)
 				.first();
 		assertNotNull("L'identité aurait dû être créée en base", profilEnBase);
+
+		// Nettoyage du profil créé pour ne pas interférer avec les tests
+		// suivants
+		id.delete();
 	}
 
 }
