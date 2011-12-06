@@ -17,6 +17,17 @@
                 <a href="@{Application.index()}"><img src="/public/images/logoDND.jpg"></a>             
             </div>
             <div id="titreSite">Bienvenue sur le trombinoscope<br>de la SA DND</div>
+
+            <div id="connexion">
+                #{if session.contains("username")}
+                    <a href="@{Securite.logout()}">Déconnexion</a>
+                    <a href="/admin">Admin</a>
+                #{/if}
+                #{else}
+                    <a href="@{Secure.login()}">Connexion</a>
+                #{/else}
+            </div>
+
             #{form @Application.index("${i}")}
 	            <div id="recherche">
 	                <img style="width: 32px; height: 32px;" alt="" src="/public/images/icon%20recherche.gif">
