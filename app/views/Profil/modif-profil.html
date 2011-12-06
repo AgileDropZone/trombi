@@ -6,7 +6,7 @@
     <table>
         <tr>
            <td><div id="label">Prénom :</div></td>
-            #{if session.contains("modif")}
+            #{if session.contains("username")}
                 <td><input type="text" name="prenom" id="prenom" value="${identite?.prenom}" /></td>
             #{/if} #{else} 
                 <td><div id="detail">${identite?.prenom}</div></td>
@@ -14,7 +14,7 @@
         </tr>
         <tr>
            <td><div id="label">Nom :</div></td>
-            #{if session.contains("modif")}
+            #{if session.contains("username")}
                 <td><input type="text" name="nom" id="nom" value="${identite?.nom}" /></td>
             #{/if} #{else} 
                 <td><div id="detail">${identite?.nom?.toUpperCase()}</div></td>
@@ -22,7 +22,7 @@
         </tr>
         <tr>
            <td><div id="label">Téléphone fixe :</div></td>
-            #{if session.contains("modif")}
+            #{if session.contains("username")}
                 <td><input type="text" name="telFixe" id="telFixe" value="${identite?.telFixe}" /></td>
             #{/if} #{else} 
                 <td><div id="detail">${identite?.telFixe}</div></td>
@@ -30,7 +30,7 @@
         </tr>
         <tr>
            <td><div id="label">Téléphone mobile :</div></td>
-            #{if session.contains("modif")}
+            #{if session.contains("username")}
                 <td><input type="text" name="telPortable" id="telPortable" value="${identite?.telPortable}" /></td>
             #{/if} #{else} 
                 <td><div id="detail">${identite?.telPortable}</div></td>
@@ -38,7 +38,7 @@
         </tr>
         <tr>
            <td><div id="label">Email :</div></td>
-            #{if session.contains("modif")}
+            #{if session.contains("username")}
                 <td><input type="text" name="email" id="email" value="${identite?.email}" /></td>
             #{/if} #{else} 
                 <td><div id="detail">${identite?.email}</div></td>
@@ -46,7 +46,7 @@
         </tr>
         <tr>
            <td><div id="label">Département :</div></td>
-            #{if session.contains("modif")}
+            #{if session.contains("username")}
                 <td><input type="text" name="departement" id="departement" value="${identite?.departement}" /></td>
             #{/if} #{else} 
                 <td><div id="detail">${identite?.departement}</div></td>
@@ -54,7 +54,7 @@
         </tr>
         <tr>
            <td><div id="label">Service :</div></td>
-            #{if session.contains("modif")}
+            #{if session.contains("username")}
                 <td><input type="text" name="service" id="service" value="${identite?.service}" /></td>
             #{/if} #{else} 
                 <td><div id="detail">${identite?.service}</div></td>
@@ -62,7 +62,7 @@
         </tr>
         <tr>
            <td><div id="label">Poste :</div></td>
-            #{if session.contains("modif")}
+            #{if session.contains("username")}
                 <td><input type="text" name="poste" id="poste" value="${identite?.poste}" /></td>
             #{/if} #{else} 
                 <td><div id="detail">${identite?.poste}</div></td>
@@ -70,7 +70,7 @@
         </tr>
         <tr>
            <td><div id="label">Localisation :</div></td>
-            #{if session.contains("modif")}
+            #{if session.contains("username")}
                 <td><textarea rows="4" name="localisation" id="localisation"> ${identite?.localisation}</textarea></td>
             #{/if} #{else} 
                 <td><textarea readonly rows="4" name="localisation" id="localisation"> ${identite?.localisation}</textarea></td>
@@ -82,12 +82,12 @@
             #{if identite && identite.photo && identite.photo.type() } <img src="@{ModifProfil.getPicture(identite?.id)}" height="350"/> #{/if}
             #{else} <img src="/public/images/MrX.jpg" height="350"/> #{/else}                       
         </div>
-        #{if session.contains("modif")}
+        #{if session.contains("username")}
 	        <br>
 	        <input type="file" name="photo" />
         #{/if}
     </div>
-    #{if session.contains("modif")}
+    #{if session.contains("username")}
 	   <input type="submit" value="Enregistrement" />
 	#{/if}
 </div>

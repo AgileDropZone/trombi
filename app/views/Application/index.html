@@ -56,5 +56,6 @@
 
 #{pagination page:page, nbPages:nbPages, searchTexte:searchTexte /}
 
-
-<div id="nouveauProfil"><a href="@{ModifProfil.nouveau()}">Nouveau</a></div>
+#{if session.contains("username")}
+    <div id="nouveauProfil"><a href="@{ModifProfil.nouveau()}">Nouveau</a></div>
+#{/if}
