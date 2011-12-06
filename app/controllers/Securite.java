@@ -1,11 +1,12 @@
 package controllers;
 
+import models.Administrateur;
 import controllers.Secure.Security;
 
 public class Securite extends Security {
 
 	static boolean authenticate(String username, String password) {
-		return true;
+		return Administrateur.connect(username, password) != null;
 	}
 
 	public static void logout() throws Throwable {

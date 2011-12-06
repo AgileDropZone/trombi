@@ -56,5 +56,8 @@ public class Bootstrap extends Job {
 				}
 			}
 		}
+
+		Logger.info("Chargement des administrateurs de tests");
+		Fixtures.loadModels("administrateurs-test.yml");
 	}
 }
