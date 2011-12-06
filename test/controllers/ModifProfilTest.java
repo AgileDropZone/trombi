@@ -19,8 +19,7 @@ public class ModifProfilTest extends FunctionalTest {
 
 	@Test
 	public void laPageDeCréationDUnNouveauProfilDoitEtreAccessible() {
-		// TODO Supprimer ce flag temporaire
-		Session.current().put("modif", "oui");
+		Session.current().put("username", "chris");
 		Response response = GET("/modifprofil/nouveau");
 		assertIsOk(response);
 		assertContentType("text/html", response);
@@ -36,7 +35,7 @@ public class ModifProfilTest extends FunctionalTest {
 	@Test
 	public void enModificationLeNomDoitApparaitreCommeSaisi() {
 		// On force le mode MODIFICATION
-		Session.current().put("modif", "O");
+		Session.current().put("username", "chris");
 		Response response = GET("/modifprofil/chargebyid?id=1");
 		assertIsOk(response);
 		assertContentType("text/html", response);
@@ -47,7 +46,7 @@ public class ModifProfilTest extends FunctionalTest {
 	@Test
 	public void enLectureSeuleLeNomDoitApparaitreCommeSaisi() {
 		// On force le mode LECTURE SEULE
-		Session.current().remove("modif");
+		Session.current().remove("username");
 		Response response = GET("/modifprofil/chargebyid?id=1");
 		assertIsOk(response);
 		assertContentType("text/html", response);
