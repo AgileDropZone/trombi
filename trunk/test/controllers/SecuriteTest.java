@@ -23,4 +23,33 @@ public class SecuriteTest extends FunctionalTest {
 					strReponse.indexOf("Nouveau") >= 0);
 		}
 	}
+
+	@Test
+	public void lAuthentificationDoitReconnaitreLeCompteParDefaut() {
+		// Vis-à-vis du jeu de test remonté, nous devrions avoir
+		// l'administrateur suivant de paramétré :
+		// chris / 123
+		assertTrue(
+				"Le compte administrateur chris / 123 aurait dû être reconnu",
+				Securite.authenticate("chris", "123"));
+	}
+
+	@Test
+	public void lAuthentificationDoitReconnaitreUneErreurDeMotDePasse() {
+		// Vis-à-vis du jeu de test remonté, nous devrions avoir
+		// l'administrateur suivant de paramétré :
+		// chris / 123
+		assertFalse(
+				"Le mot de passe ne correspond pas au compte administrateur chris",
+				Securite.authenticate("chris", "55555"));
+	}
+
+	@Test
+	public void lAuthentificationDoitReconnaitreUneErreurDeCompte() {
+		// Vis-à-vis du jeu de test remonté, nous devrions avoir
+		// l'administrateur suivant de paramétré :
+		// chris / 123
+		assertFalse("Le compte toto n'existe pas",
+				Securite.authenticate("toto", "123"));
+	}
 }
