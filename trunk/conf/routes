@@ -20,4 +20,4 @@ GET     /public/                                staticDir:public
 *       /{controller}/{action}                  {controller}.{action}
 
 # Console d'administration
-GET     /admin                                  Application.index
+GET     /admin                                  BoGestionAdmin.index

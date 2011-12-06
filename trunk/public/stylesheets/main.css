@@ -95,28 +95,24 @@ table #photo {
     text-decoration: none;
     color: black;
 }
-
 #nouveauProfil a {
     color: red;
 }
-
 #label {
 	text-align: left;
     width: 180px;
 }
-
 #modifProfil table {
 	position: relative;
 	margin-left:5%; 
 	width:45%;
 }
-
 input[type=text] {
     text-align: left;
     font-weight: bold;
     width: 400px;
- }
- textarea {
+}
+textarea {
     text-align: left;
     font-weight: bold;
     padding-top: 0px;
@@ -125,9 +121,8 @@ input[type=text] {
     width: 400px;
     height: 100px;
     font-family: Arial;
- }
- 
- #modifProfil #choix-photo {
+}
+#modifProfil #choix-photo {
     position: absolute;
     top: 125px;
     bottom: 100px;
@@ -136,10 +131,27 @@ input[type=text] {
     margin-right: 0px;
     right: 10%;
 }
-
 #detail {
     text-align: left;
     font-weight: bold;
+}
+
+#admin {
+    padding-top: 10px;
+    padding-bottom: 15px;   
+    width:100%;
+}
+#admin #titrePage {
+    padding-top: 25px;
+    padding-bottom: 25px;   
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: rgb(0, 0, 153);    
+}
+#admin input[type=text] {
+    text-align: left;
+    width: 150px;
 }
 
 
