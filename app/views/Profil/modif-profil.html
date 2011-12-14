@@ -71,9 +71,9 @@
         <tr>
            <td><div id="label">Localisation :</div></td>
             #{if session.contains("username")}
-                <td><textarea rows="4" name="localisation" id="localisation"> ${identite?.localisation}</textarea></td>
+                <td><textarea rows="3" name="localisation" id="localisation">${identite?.localisation}</textarea></td>
             #{/if} #{else} 
-                <td><textarea readonly rows="4" name="localisation" id="localisation"> ${identite?.localisation}</textarea></td>
+                <td><textarea readonly rows="3" name="localisation" id="localisation">${identite?.localisation}</textarea></td>
             #{/else}            
         </tr>
     </table> 
@@ -84,7 +84,7 @@
         </div>
         #{if session.contains("username")}
 	        <br>
-	        <input type="file" name="photo" />
+	        <input type="file" name="photo" onchange="submit();"/>
         #{/if}
     </div>
     #{if session.contains("username")}

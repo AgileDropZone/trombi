@@ -6,11 +6,17 @@ import java.io.FileNotFoundException;
 import models.Profil;
 import play.Play;
 import play.db.jpa.Blob;
+import play.mvc.Before;
 import play.mvc.Controller;
 
 public class ModifProfil extends Controller {
 
 	private static String pathMrX = "public/images/MrX.jpg";
+
+	@Before
+	static void addDefaults() {
+		renderArgs.put("param", ParamPublic.getParam());
+	}
 
 	public static void chargeById(Long id) {
 		Profil identite = Profil.findById(id);
