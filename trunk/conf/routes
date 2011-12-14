@@ -21,3 +21,6 @@ GET     /public/                                staticDir:public
 
 # Console d'administration
 GET     /admin                                  BoGestionAdmin.index
+
+# Console de personnalisation du site
+GET     /param                                  Param.index

@@ -1,0 +1,31 @@
+#{extends 'main.html' /}
+#{set title:'Personalisation du site' /}
+
+#{form @Param.save(), enctype:'multipart/form-data'}
+<div id="parametrage">
+    <table>
+        <tr>
+           <td><div id="label">Titre du site :</div><div id="legend">Message de bienvenue</div></td>
+           <td><textarea rows="2" name="titreSite" id="titreSite">${param?.titreSite}</textarea></td>
+        </tr>
+        <tr>
+           <td><div id="label">Adresse de la société :</div><div id="legend">Affichée en bas de page : 1 ligne max</div></td>
+           <td><input type="text" name="adresseSociete" id="adresseSociete" value="${param?.adresseSociete}" /></td>
+        </tr>
+        <tr>
+           <td><div id="label">Mention légale :</div><div id="legend">Affichée en bas de page : 1 ligne max</div></td>
+           <td><input type="text" name="mentionLegale" id="mentionLegale" value="${param?.mentionLegale}" /></td>
+        </tr>
+    </table> 
+    <div id="choix-logo">
+        <div id="logo">
+            #{logo param:param /}
+        </div>
+        <br>
+        <input type="file" name="logoSociete" onchange="submit();" />
+    </div>
+   <input type="submit" value="Enregistrement" />
+</div>
+#{/form}
+
+<div id="retour"><a href="@{Application.index()}">Retour à la liste</a></div>

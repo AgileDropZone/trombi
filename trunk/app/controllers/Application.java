@@ -6,12 +6,18 @@ import java.util.List;
 import models.PaginationVerticale;
 import models.Profil;
 import play.db.jpa.Model;
+import play.mvc.Before;
 import play.mvc.Controller;
 
 public class Application extends Controller {
 
 	private static Integer defaultPage = 1;
 	private static Integer defaultNbEnrParPage = 15;
+
+	@Before
+	static void addDefaults() {
+		renderArgs.put("param", ParamPublic.getParam());
+	}
 
 	public static void index(Integer page, String searchTexte) {
 		page = page != null ? page : defaultPage;

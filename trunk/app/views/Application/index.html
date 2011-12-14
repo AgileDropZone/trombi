@@ -53,6 +53,9 @@
 </table>
         
 #{/if}
+#{else}
+<div id="pasDeResultat">Désolé, aucun profil ne correspond à votre recherche.</div>
+#{/else}
 
 #{pagination page:page, nbPages:nbPages, searchTexte:searchTexte /}
 

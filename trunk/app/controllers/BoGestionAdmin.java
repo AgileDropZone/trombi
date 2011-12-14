@@ -3,11 +3,17 @@ package controllers;
 import java.util.List;
 
 import models.Administrateur;
+import play.mvc.Before;
 import play.mvc.Controller;
 import play.mvc.With;
 
 @With(Secure.class)
 public class BoGestionAdmin extends Controller {
+
+	@Before
+	static void addDefaults() {
+		renderArgs.put("param", ParamPublic.getParam());
+	}
 
 	public static void index() {
 

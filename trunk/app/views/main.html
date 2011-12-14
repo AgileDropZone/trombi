@@ -14,14 +14,15 @@
 
         <div id="entete">
             <div id="logoSociete">
-                <a href="@{Application.index()}"><img src="/public/images/logoDND.jpg"></a>             
+                <a href="@{Application.index()}">#{logo param:param /}</a>           
             </div>
-            <div id="titreSite">Bienvenue sur le trombinoscope<br>de la SA DND</div>
+            <div id="titreSite">${param.titreSite.nl2br()}</div>
 
             <div id="connexion">
                 #{if session.contains("username")}
                     <a href="@{Securite.logout()}">Déconnexion</a>
-                    <a href="/admin">Admin</a>
+                    <a href="/admin">Admin</a><br>
+                    <a href="@{Param.index()}">Personnalisation</a>                   
                 #{/if}
                 #{else}
                     <a href="@{Secure.login()}">Connexion</a>
@@ -41,15 +42,10 @@
         #{doLayout /}
         </div> <!-- contenu -->
         
-        
-        
+
         <div id="piedDePage">
-            <div id="mentionSociete">
-                SA DND - Zone d'activités Azur 2000 - 14 rue Albert Einstein - 00123 AGILE-EN-FRANCE
-            </div>
-            <div id="mentionLegale">
-                Ce site est géré par le logiciel Trombi
-            </div>
+            <div id="mentionSociete">${param.adresseSociete}</div>
+            <div id="mentionLegale">${param.mentionLegale}</div>
         </div> <!-- piedDePage -->        
     </body>
 </html>
