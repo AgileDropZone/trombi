@@ -40,12 +40,12 @@ public class Application extends Controller {
 			String textePourLaRecherche = "%" + searchTexte.toUpperCase() + "%";
 
 			lstProfils = Profil
-					.find("from Profil where upper(nom)||upper(prenom) like ? or upper(prenom)||upper(nom) like ? order by nom",
+					.find("from Profil where upper(nom)||upper(prenom) like ? or upper(prenom)||upper(nom) like ? order by upper(nom)",
 							textePourLaRecherche, textePourLaRecherche).fetch(
 							page, defaultNbEnrParPage);
 		} else {
-			lstProfils = Profil.find("from Profil order by nom").fetch(page,
-					defaultNbEnrParPage);
+			lstProfils = Profil.find("from Profil order by upper(nom)").fetch(
+					page, defaultNbEnrParPage);
 		}
 
 		List<PaginationVerticale> lstPaginee = Application.paginer(lstProfils,
