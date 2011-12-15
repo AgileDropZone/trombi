@@ -37,6 +37,6 @@ public class Param extends Controller {
 			param.logoSociete = logoSociete;
 		}
 		param.save();
-		render("BoGestionAdmin/param.html");
+		render("BoGestionAdmin/param.html", param);
 	}
 }
