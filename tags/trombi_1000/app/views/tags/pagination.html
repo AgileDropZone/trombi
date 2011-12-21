@@ -1,0 +1,22 @@
+#{if _nbPages > 1}
+<div id="pagination">
+<span class="premierePage">#{a @Application.index(1, "${_searchTexte}") } <img src="/public/images/premier.png" height="15"/> #{/a}</span>
+#{if _page != 1}
+    <span class="pagePrecedente">#{a @Application.index(_page-1, "${_searchTexte}") } <img src="/public/images/précédent.png" height="15"/> #{/a}</span>
+#{/if}
+
+#{list items:1.._nbPages, as:'i'}
+	#{if i == _page}
+        <span class="pageCourante"> ${i} </span>
+	#{/if}
+	#{else}
+        <span class="pageAutre">#{a @Application.index("${i}", "${_searchTexte}") } ${i} #{/a}</span>
+	#{/else}
+#{/list}
+
+#{if _page != _nbPages}
+    <span class="pageSuivante">#{a @Application.index(_page+1, "${_searchTexte}") } <img src="/public/images/suivant.png" height="15"/> #{/a}</span>
+#{/if}
+<span class="dernierePage">#{a @Application.index(_nbPages, "${_searchTexte}") } <img src="/public/images/dernier.png" height="15"/> #{/a}</span>
+</div>
+#{/if}

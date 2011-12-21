@@ -1,0 +1,64 @@
+#{extends 'main.html' /}
+#{set title:'Trombinoscope' /}
+
+
+#{if lstPaginee}
+
+<table summary="Liste des identitiés gérées dans le trombinoscope..">
+    #{list items:lstPaginee, as:'lst'}
+        <tr> 
+            #{if lst.col1}
+                <td>
+                    #{profil-accueil profil:lst.col1 /}
+                </td>
+            #{/if}
+            #{else}
+                <td></td>
+            #{/else}
+            #{if lst.col2}
+                <td>
+                    #{profil-accueil profil:lst.col2 /}
+                </td>
+            #{/if}
+            #{else}
+                <td></td>
+            #{/else}
+            #{if lst.col3}
+                <td>
+                    #{profil-accueil profil:lst.col3 /}
+                </td>
+            #{/if}
+            #{else}
+                <td></td>
+            #{/else}
+            #{if lst.col4}
+                <td>
+                    #{profil-accueil profil:lst.col4 /}
+                </td>
+            #{/if}
+            #{else}
+                <td></td>
+            #{/else}
+            #{if lst.col5}
+                <td>
+                    #{profil-accueil profil:lst.col5 /}
+                </td>
+            #{/if}
+            #{else}
+                <td></td>
+            #{/else}
+        </tr>               
+    #{/list}
+
+</table>
+        
+#{/if}
+#{else}
+<div id="pasDeResultat">Désolé, aucun profil ne correspond à votre recherche.</div>
+#{/else}
+
+#{pagination page:page, nbPages:nbPages, searchTexte:searchTexte /}
+
+#{if session.contains("username")}
+    <div id="nouveauProfil"><a href="@{ModifProfil.nouveau()}">Nouveau</a></div>
+#{/if}

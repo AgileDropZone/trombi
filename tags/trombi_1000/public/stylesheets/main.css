@@ -1,0 +1,229 @@
+body {
+    color: rgb(0, 0, 0);
+    background-color: rgb(204, 204, 255);
+    alink="#000099" link="#000099" vlink="#990099";     
+    font-family: Arial;
+    height: 700px;
+}
+
+a img {
+	border:none;
+}
+
+/*************************************************************/
+/*                           ENTETE                          */
+/*************************************************************/
+#entete {
+    margin-bottom: 50px;
+    width:100%;    
+}
+#entete #logoSociete img {
+    position: absolute;
+    top: 2px;
+    left: 2%;
+    height: 100px;
+}
+#entete #titreSite {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    color: rgb(0, 0, 153);
+}
+#entete #recherche {
+    position: absolute;
+    top: 35px;
+    right: 2%;
+    font-size: 24px;
+    color: rgb(0, 0, 153);
+}
+#entete #recherche input[type=text] {
+    width: 150px;
+}
+#entete #connexion {
+    position: absolute;
+    top: 10px;
+    right: 2%;
+    font-size: 10px;
+    color: rgb(0, 0, 153);
+}
+/*************************************************************/
+/*                        PIED DE PAGE                       */
+/*************************************************************/
+#piedDePage {
+	position: fixed;
+    width:100%;
+    bottom: 0;
+	padding: 0 0;
+	background-color: rgb(204, 204, 255);
+	z-index: 1;
+}
+#piedDePage #mentionLegale {
+    font-size: xx-small;
+    text-align: center;
+}
+#piedDePage #mentionSociete {
+    margin-top: 10px;
+    font-size: small;
+    text-align: center;
+    font-style: italic;
+}
+
+/*************************************************************/
+/*                          CONTENU                          */
+/*************************************************************/
+#contenu {
+	padding-bottom: 30px;
+}
+#contenu a img {
+    border-radius: 10px 0px 10px 0px;
+}
+table {
+    caption-side: top;
+    text-align: center;
+    width:80%; 
+    margin-left:10%; 
+    margin-right:10%; 
+}
+td, th {
+    padding: 5px;
+}
+table #photo {
+    text-align: center;
+}
+.nom_prenom a {
+    text-decoration: none;
+    color: black;
+}
+#pasDeResultat {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: red;
+    padding-top: 100px;
+}
+#nouveauProfil a {
+    color: red;
+}
+#label {
+	text-align: left;
+    width: 180px;
+}
+#legend {
+    text-align: left;
+    font-style:italic;
+    font-size: small;
+}
+#modifProfil table {
+    position: relative;
+    margin-left:5%; 
+    width:45%;
+}
+input[type=text] {
+    text-align: left;
+    font-weight: bold;
+    width: 400px;
+}
+textarea {
+    text-align: left;
+    font-weight: bold;
+    padding-top: 0px;
+    padding-bottom: 0px;    
+    resize: both;
+    width: 400px;
+    font-family: Arial;
+}
+#modifProfil #choix-photo {
+    position: absolute;
+    top: 125px;
+    bottom: 100px;
+    width: 30%;
+    margin-left: 0px;
+    margin-right: 0px;
+    right: 10%;
+}
+#detail {
+    text-align: left;
+    font-weight: bold;
+}
+
+#admin {
+    padding-top: 10px;
+    padding-bottom: 15px;   
+    width:100%;
+}
+#admin #titrePage {
+    padding-top: 25px;
+    padding-bottom: 25px;   
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: rgb(0, 0, 153);    
+}
+#admin input[type=text] {
+    text-align: left;
+    width: 150px;
+}
+#parametrage table {
+    position: relative;
+    margin-left:2%; 
+    width:45%;
+}
+#parametrage #label {
+    width: 250px;
+}
+#parametrage input[type=text] {
+    font-weight: normal;
+    width: 600px;
+}
+#parametrage textarea {
+    font-weight: normal;
+    width: 600px;
+}
+#parametrage #choix-logo {
+    position: absolute;
+    top: 125px;
+    bottom: 100px;
+    width: 20%;
+    margin-left: 0px;
+    margin-right: 0px;
+    right: 2%;
+}
+#parametrage #logo img {
+    height: 100px;
+}
+
+
+/*************************************************************/
+/*                        PAGINATION                         */
+/*************************************************************/
+#pagination {
+    position: fixed;
+    width:100%;
+    bottom: 0;
+    right: 2%;
+    text-align: right;
+    padding: 0px 0px 5px 0px;
+    z-index: 2;
+}
+#pagination a:link, a:visited, a:hover, a:focus {
+    text-decoration:none;
+}
+#pagination a img {
+    border-radius: 0px 0px 0px 0px;
+}
+.pageCourante {
+    margin-left: 5px;
+    margin-right: 5px;
+    border-width: 2px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+.pageAutre a {
+    margin-left: 5px;
+    margin-right: 5px;
+    border-width: 2px;
+    padding-left: 3px;
+    padding-right: 3px;
+    color: blue;
+    font-weight: bold;
+}

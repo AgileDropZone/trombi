@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+        #{get 'moreStyles' /}
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        <script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="utf-8"></script>
+        #{get 'moreScripts' /}
+    </head>
+    <body>
+
+        <div id="entete">
+            <div id="logoSociete">
+                <a href="@{Application.index()}">#{logo param:param /}</a>           
+            </div>
+            <div id="titreSite">${param.titreSite.nl2br()}</div>
+
+            <div id="connexion">
+                #{if session.contains("username")}
+                    <a href="@{Securite.logout()}">Déconnexion</a>
+                    <a href="/admin">Admin</a><br>
+                    <a href="@{Param.index()}">Personnalisation</a>                   
+                #{/if}
+                #{else}
+                    <a href="@{Secure.login()}">Connexion</a>
+                #{/else}
+            </div>
+
+            #{form @Application.index("${i}")}
+	            <div id="recherche">
+	                <img style="width: 32px; height: 32px;" alt="" src="/public/images/icon%20recherche.gif">
+	                <input type="text" name="searchTexte" id="searchTexte" value="${searchTexte}" />
+	            </div>
+            #{/form}                                
+        </div> <!-- entete -->
+        
+        
+        <div id="contenu">            
+        #{doLayout /}
+        </div> <!-- contenu -->
+        
+
+        <div id="piedDePage">
+            <div id="mentionSociete">${param.adresseSociete}</div>
+            <div id="mentionLegale">${param.mentionLegale}</div>
+        </div> <!-- piedDePage -->        
+    </body>
+</html>

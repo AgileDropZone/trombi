@@ -1,0 +1,96 @@
+#{extends 'main.html' /}
+#{set title:'Modifications' /}
+
+#{form @ModifProfil.save(identite.id), enctype:'multipart/form-data'}
+<div id="modifProfil">
+    <table>
+        <tr>
+           <td><div id="label">Prénom :</div></td>
+            #{if session.contains("username")}
+                <td><input type="text" name="prenom" id="prenom" value="${identite?.prenom}" /></td>
+            #{/if} #{else} 
+                <td><div id="detail">${identite?.prenom}</div></td>
+            #{/else} 
+        </tr>
+        <tr>
+           <td><div id="label">Nom :</div></td>
+            #{if session.contains("username")}
+                <td><input type="text" name="nom" id="nom" value="${identite?.nom}" /></td>
+            #{/if} #{else} 
+                <td><div id="detail">${identite?.nom?.toUpperCase()}</div></td>
+            #{/else} 
+        </tr>
+        <tr>
+           <td><div id="label">Téléphone fixe :</div></td>
+            #{if session.contains("username")}
+                <td><input type="text" name="telFixe" id="telFixe" value="${identite?.telFixe}" /></td>
+            #{/if} #{else} 
+                <td><div id="detail">${identite?.telFixe}</div></td>
+            #{/else} 
+        </tr>
+        <tr>
+           <td><div id="label">Téléphone mobile :</div></td>
+            #{if session.contains("username")}
+                <td><input type="text" name="telPortable" id="telPortable" value="${identite?.telPortable}" /></td>
+            #{/if} #{else} 
+                <td><div id="detail">${identite?.telPortable}</div></td>
+            #{/else}         
+        </tr>
+        <tr>
+           <td><div id="label">Email :</div></td>
+            #{if session.contains("username")}
+                <td><input type="text" name="email" id="email" value="${identite?.email}" /></td>
+            #{/if} #{else} 
+                <td><div id="detail">${identite?.email}</div></td>
+            #{/else}                
+        </tr>
+        <tr>
+           <td><div id="label">Département :</div></td>
+            #{if session.contains("username")}
+                <td><input type="text" name="departement" id="departement" value="${identite?.departement}" /></td>
+            #{/if} #{else} 
+                <td><div id="detail">${identite?.departement}</div></td>
+            #{/else}          
+        </tr>
+        <tr>
+           <td><div id="label">Service :</div></td>
+            #{if session.contains("username")}
+                <td><input type="text" name="service" id="service" value="${identite?.service}" /></td>
+            #{/if} #{else} 
+                <td><div id="detail">${identite?.service}</div></td>
+            #{/else}            
+        </tr>
+        <tr>
+           <td><div id="label">Poste :</div></td>
+            #{if session.contains("username")}
+                <td><input type="text" name="poste" id="poste" value="${identite?.poste}" /></td>
+            #{/if} #{else} 
+                <td><div id="detail">${identite?.poste}</div></td>
+            #{/else}            
+        </tr>
+        <tr>
+           <td><div id="label">Localisation :</div></td>
+            #{if session.contains("username")}
+                <td><textarea rows="3" name="localisation" id="localisation">${identite?.localisation}</textarea></td>
+            #{/if} #{else} 
+                <td><textarea readonly rows="3" name="localisation" id="localisation">${identite?.localisation}</textarea></td>
+            #{/else}            
+        </tr>
+    </table> 
+    <div id="choix-photo">
+        <div id="photo">
+            #{if identite && identite.photo && identite.photo.type() } <img src="@{ModifProfil.getPicture(identite?.id)}" height="350"/> #{/if}
+            #{else} <img src="/public/images/MrX.jpg" height="350"/> #{/else}                       
+        </div>
+        #{if session.contains("username")}
+	        <br>
+	        <input type="file" name="photo" onchange="submit();"/>
+        #{/if}
+    </div>
+    #{if session.contains("username")}
+	   <input type="submit" value="Enregistrement" />
+	#{/if}
+</div>
+#{/form}
+
+<div id="retour"><a href="@{Application.index()}">Retour à la liste</a></div>

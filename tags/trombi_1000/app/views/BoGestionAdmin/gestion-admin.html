@@ -1,0 +1,45 @@
+#{extends 'main.html' /}
+#{set title:'Administration' /}
+
+<div id="admin">
+    <div id="titrePage">ADMINISTRATEURS DU TROMBINOSCOPE</div>
+    
+    #{if lstAdmin}
+        <table summary="Liste des administrateurs du trombinoscope. Vous y trouverez de quoi ajouter,
+         supprimer, modifier un administrateur.">
+        <tr>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Mot de passe<br>à forcer</th>
+            <th>Enregistrement</th>
+            <th>Suppression</th>                
+        </tr>
+        #{list items:lstAdmin, as:'admin'}
+            <tr> 
+                #{form @save(admin.id)}
+                <td><div id="nom"><input type="text" name="nom" id="nom" value="${admin?.nom}" /></div></td>
+                <td><div id="email"><input type="text" name="email" id="email" value="${admin?.email}" /></div></td>
+                <td><div id="motDePasse"><input type="text" name="motDePasse" id="motDePasse" value="" /></div></td>
+                <td><div id="enregistrement"><input type="submit" value="MàJ"></div></td>
+                <td><div id="suppression"><a href="@{BoGestionAdmin.delete(admin.id)}">Supp</a></div></td>
+                #{/form}
+            </tr>               
+        #{/list}
+        
+        <!-- Ligne supplémentaire permettant d'ajouter un administrateur -->
+        <tr>
+            #{form @save()}
+            <td><div id="nouveauNom"><input type="text" name="nom" id="nom"></div></td>
+            <td><div id="nouveauEmail"><input type="text" name="email" id ="email"></div></td>
+            <td><div id="nouveauMotDePasse"><input type="text" name="motDePasse" id="motDePasse"></div></td>
+            <td><div id="nouveauEnregistrement"><input type="submit" value="+"></div></td>
+            <td></td>
+            #{/form}
+        </tr>   
+        </table>
+    #{/if}
+    <br>
+
+</div> <!-- admin -->
+
+<div id="retour"><a href="@{Application.index()}">Retour au trombinoscope</a></div>
