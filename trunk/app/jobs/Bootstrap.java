@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.List;
 
+import models.Administrateur;
 import models.Profil;
 import play.Logger;
 import play.Play;
@@ -27,6 +28,8 @@ public class Bootstrap extends Job {
 			if (Profil.count() == 0) {
 				reinitJeuDeTests();
 			}
+		} else if (Administrateur.count() == 0) {
+			reinitAdminParDefaut();
 		}
 	}
 
@@ -59,5 +62,10 @@ public class Bootstrap extends Job {
 
 		Logger.info("Chargement des administrateurs de tests");
 		Fixtures.loadModels("administrateurs-test.yml");
+	}
+
+	public void reinitAdminParDefaut() {
+		Administrateur admin = new Administrateur("trombi", null, "trombi");
+		admin.save();
 	}
 }
